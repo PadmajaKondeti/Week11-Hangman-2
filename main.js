@@ -13,29 +13,12 @@ inquirer.prompt([{
 	if (answer.gameDecision == "Yes"){
 		var word = require('./game.js');
 		
-		
-		var GuessedWord = require('./letter.js');
-
-		var yyy = new GuessedWord(word);
-		yyy.createBlankWord();
 
 		var CmdWord = require('./word.js');
 		
-		var xxx = new CmdWord(word);
-		var letter = xxx.guessLetter();
-		console.log(letter)
-		// yyy.createGuessedWord(letter);
+		var cmdWord = new CmdWord(word);
+		cmdWord.guessLetter();
 		
-		// if ((guessedWord.indexOf('_')>= 0) && (numGuesses < wordlength)){
-		// 	guessLetter();
-		// // console.log(guessedWord);
-		// var wordlength = guessedWord.length;
-		// console.log(wordlength);
-		// if ((guessedWord.indexOf('_') >= 0) && (numGuesses < wordlength)){
-
-// 
-		 // }
-
 		
 	}
 });
