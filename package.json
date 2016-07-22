@@ -1,0 +1,24 @@
+{
+  "name": "week11-hangman-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PadmajaKondeti/week11-hangman-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PadmajaKondeti/week11-hangman-2/issues"
+  },
+  "homepage": "https://github.com/PadmajaKondeti/week11-hangman-2#readme",
+  "dependencies": {
+    "fs.js": "0.0.1",
+    "inquirer": "^1.1.2",
+    "word-list": "^1.0.1"
+  }
+}
