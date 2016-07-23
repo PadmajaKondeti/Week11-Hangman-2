@@ -1,8 +1,6 @@
 var inquirer = require('inquirer');
 //var guessedWord=require('./letter.js');
-
-
-var numGuesses = 0;
+//var numGuesses = 0;
 inquirer.prompt([{
 	type: "list",
 	message: "Do you want to play Hangman?",
@@ -12,13 +10,14 @@ inquirer.prompt([{
 ]).then(function(answer) {
 	if (answer.gameDecision == "Yes"){
 		var word = require('./game.js');
+		var CmpWord = require('./word.js');
+		var CmpWord1 = new CmpWord(word);
+		console.log('CmpWord1.word:  '+CmpWord1.word);
+		console.log('CmpWord1.wordlen:  '+CmpWord1.wordlength);
+		CmpWord1.getInitWord(word);
+		
+		CmpWord1.guessLetter(word);
 		
 
-		var CmdWord = require('./word.js');
-		
-		var cmdWord = new CmdWord(word);
-		cmdWord.guessLetter();
-		
-		
 	}
 });

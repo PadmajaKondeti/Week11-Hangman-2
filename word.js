@@ -1,33 +1,43 @@
 var inquirer = require('inquirer');
-var GuessedWord = require('./letter.js');		
+var GuessedWord = require('./letter.js');	
+// var numGuesses = 0;	
+var letter = '';
 var CmpWord = function(word){
 	this.word = word;
 	this.wordlength = word.length;
-	this.numGuesses=0;
-	var guess = new GuessedWord(this.word);
-	guess.createBlankWord();
-	this.numGuesses=0;
-	this.guessLetter = function(){
-		console.log('i am in guessLetter');
-		this.guesswrd = guess.guessedword.toString().replace(/,/g, ' ');
-		if ((this.guesswrd.indexOf('_') >= 0) && (this.numGuesses < this.wordlength)){
+	this.numGuesses = 0;
+
+	this.guess = new GuessedWord(word);
+		
+
+	this.getInitWord = function(word){
+		this.guess.createBlankWord();
+		console.log(this.guess.displayWord.toString().replace(/,/g, ' '));
+	};
+
+	this.guessLetter = function(word){
+		var letter ="";
+	// 	if (this.numGuesses < this.wordlength){
 			inquirer.prompt([{
-				name: "letterguess",
+				name: "lettergGuess",
 				message: "Guess a letter?"
 				}
 			]).then(function(answer) {
-				guess.createGuessedWord(answer.letterguess);
-				this.numGuesses =+ 1;
-				this.guessLetter();
-			});
-			
-		} else{
-			if (this.guessedWord.replace(/ /g, '') == word) {
-				console.log("Hooray, you won!!");
-			} else {
-				console.log("Sorry the word is " + word );
-			}
-		};
+				//console.log(this);
+				letter = answer.letterGuess;
+				// console.log('lllll');
+				// console.log(answer.letterguess);
+				// console.log(this.guess);
+				// this.guess.createGuessedWord();
+				
+				
+				// CmpWord.guess.createGuessedWord(answer.letterguess);
+				//  this.numGuesses++;
+				// //this.guessLetter(word);
+				// console.log(this.numGuesses );
+			});	
+			console.log(letter);
+	// 	};
 	};
 };
 module.exports = CmpWord;
