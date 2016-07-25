@@ -10,13 +10,24 @@ inquirer.prompt([{
 ]).then(function(answer) {
 	if (answer.gameDecision == "Yes"){
 		var word = require('./game.js');
+		console.log(word);
 		var CmpWord = require('./word.js');
-		var CmpWord1 = new CmpWord(word);
-		console.log('CmpWord1.word:  '+CmpWord1.word);
-		console.log('CmpWord1.wordlen:  '+CmpWord1.wordlength);
-		CmpWord1.getInitWord(word);
+		var curWord = new CmpWord(word);
 		
-		CmpWord1.guessLetter(word);
+
+
+		
+		curWord.getInitWord(word);
+// console.log(curWord.word);
+// 		console.log(curWord.wordlength);
+// console.log(curWord.numGuesses);
+
+		
+		curWord.guessLetter();
+		
+// 		console.log(curWord.word);
+// 		console.log(curWord.wordlength);
+// console.log(curWord.numGuesses);
 		
 
 	}
