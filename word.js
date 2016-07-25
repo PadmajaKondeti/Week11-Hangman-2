@@ -13,20 +13,29 @@ var CmpWord = function(word){
 		this.guess.createBlankWord();
 		console.log(this.guess.displayWord.toString().replace(/,/g, ' '));
 	};
-
+	var self = this;
 	this.guessLetter = function(word){
-		var self = this;
-		inquirer.prompt([{
-			name: "letterGuess",
-			message: "Guess a letter?"
+		if ((self.guess.displayWord.indexOf('_')>= 0) && (self.numGuesses < self.wordlength)){
+			
+			inquirer.prompt([{
+				name: "letterGuess",
+				message: "Guess a letter?"
+				}
+			]).then(function(result) {
+				self.guess.createGuessedWord(self.word, result.letterGuess);
+				self.guessLetter(self.word);
+				self.numGuesses++;
+			});
+		} else {
+		
+			if ((self.guess.displayWord).toString().replace(/,/g, '') == self.word) {
+
+				console.log("Hooray, you won!!");
+			} else {
+				console.log("Sorry the word is -  " + self.word );
 			}
-		]).then(function(result) {
-			self.guess.createGuessedWord(self.word, result.letterGuess);
-			console.log('hello');
-			self.guessLetter(self.word)
-		});
+		};
 	};
-	// };
 	
 };
 module.exports = CmpWord;

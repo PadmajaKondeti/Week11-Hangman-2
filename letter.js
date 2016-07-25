@@ -12,40 +12,23 @@ var GuessedWord = function(word){
 		};
 		 this.displayWord= this.wordBlank.trim().split(' ');	
 	};
+	var self = this;
 	this.createGuessedWord = function(word, letter){
-		var self = this;
-		// var newWord1 = this.displayWord.toString().replace(/,/g, ' ');
-		// console.log(newWord1);
-		// inquirer.prompt([{
-		// 	name: "letterGuess",
-		// 	message: "Guess a letter?"
-		// 	}
-		// ]).then(function(result) {
-			console.log("aaa : "+letter)
-		
 		var indices = [];
+		for(var i=0; i<self.word.length;i++) {
 
-		
-		
-			for(var i=0; i<self.word.length;i++) {
-
-				if (self.word[i] == self.letter){
-					indices.push(i);
-				} 
-			}
-			if (indices.length > 0 ){
-				for(var i=0; i<indices.length;i++) {
-					console.log (self.letter);
-					console.log(self.displayWord);
-					self.displayWord[indices[i]] = result.letterGuess;	
-				}	
-				console.log(self.displayWord.toString().replace(/,/g, ' '));
-				console.log(self.word);
-					
-			}
-
-		//});
-		//createGuessedWord();
+			if (self.word[i] == letter){
+				indices.push(i);
+			} 
+		}
+		if (indices.length > 0 ){
+			for(var i=0; i<indices.length;i++) {
+				self.displayWord[indices[i]] = letter;	
+				
+			}	
+			console.log(self.displayWord.toString().replace(/,/g, ' '));
+			
+		}
 	};
 }	
 module.exports = GuessedWord;

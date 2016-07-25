@@ -13,22 +13,7 @@ inquirer.prompt([{
 		console.log(word);
 		var CmpWord = require('./word.js');
 		var curWord = new CmpWord(word);
-		
-
-
-		
-		curWord.getInitWord(word);
-// console.log(curWord.word);
-// 		console.log(curWord.wordlength);
-// console.log(curWord.numGuesses);
-
-		
+		curWord.getInitWord(word);	
 		curWord.guessLetter(word);
-		
-// 		console.log(curWord.word);
-// 		console.log(curWord.wordlength);
-// console.log(curWord.numGuesses);
-		
-
 	}
 });
