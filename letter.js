@@ -12,7 +12,7 @@ var GuessedWord = function(word){
 		};
 		 this.displayWord= this.wordBlank.trim().split(' ');	
 	};
-	this.createGuessedWord = function(letter, word){
+	this.createGuessedWord = function(word, letter){
 		var self = this;
 		// var newWord1 = this.displayWord.toString().replace(/,/g, ' ');
 		// console.log(newWord1);
@@ -21,24 +21,27 @@ var GuessedWord = function(word){
 		// 	message: "Guess a letter?"
 		// 	}
 		// ]).then(function(result) {
+			console.log("aaa : "+letter)
 		
 		var indices = [];
 
+		
+		
+			for(var i=0; i<self.word.length;i++) {
 
-			for(var i=0; i<word.length;i++) {
-
-				if (word[i] == result.letterGuess){
-					console.log(word);
+				if (self.word[i] == self.letter){
 					indices.push(i);
 				} 
 			}
 			if (indices.length > 0 ){
 				for(var i=0; i<indices.length;i++) {
-					console.log(result.letterGuess)
+					console.log (self.letter);
+					console.log(self.displayWord);
 					self.displayWord[indices[i]] = result.letterGuess;	
 				}	
 				console.log(self.displayWord.toString().replace(/,/g, ' '));
-
+				console.log(self.word);
+					
 			}
 
 		//});

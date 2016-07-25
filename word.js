@@ -15,15 +15,15 @@ var CmpWord = function(word){
 	};
 
 	this.guessLetter = function(word){
-		console.log('dddddd');
 		var self = this;
 		inquirer.prompt([{
 			name: "letterGuess",
 			message: "Guess a letter?"
 			}
 		]).then(function(result) {
-			self.guess.createGuessedWord(self.word);
-			self.guessLetter()
+			self.guess.createGuessedWord(self.word, result.letterGuess);
+			console.log('hello');
+			self.guessLetter(self.word)
 		});
 	};
 	// };

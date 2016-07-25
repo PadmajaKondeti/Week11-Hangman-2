@@ -23,7 +23,7 @@ inquirer.prompt([{
 // console.log(curWord.numGuesses);
 
 		
-		curWord.guessLetter();
+		curWord.guessLetter(word);
 		
 // 		console.log(curWord.word);
 // 		console.log(curWord.wordlength);
